@@ -16,7 +16,15 @@ const displayScreen2 = ref(false);
 
         <!-- MODALE -->
         <div @click.stop
-            class="bg-gray-950 absolute p-8 rounded h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-justify border text-lg max-w-4xl w-full">
+            class="bg-gray-950 absolute p-4 md:p-8 rounded h-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-justify border text-sm md:text-lg md:max-w-4xl w-[70%] md:w-full">
+
+            <div class="absolute top-[-0.25rem] right-[-0.25rem] md:top-[-0.5rem] md:right-[-0.5rem] cursor-pointer"
+                @click="$emit('close')">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="lightgray" class="w-4 h-4 md:w-6 md:h-6 bg-gray-950 rounded border">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
 
             <p>
                 <!-- image wrapper -->
@@ -28,7 +36,7 @@ const displayScreen2 = ref(false);
                     <img src="/projets/stephane/stephane-bg.png" alt="Stéphane"
                         class="absolute top-full left-1/3 mt-1 border border-gray-500 z-10 bg-gray-900"
                         style="width: 150px; height: auto; min-width: 150px;"
-                        :class="displayStephanePP ? 'visible' : 'hidden'" />
+                        :class="displayStephanePP ? 'hidden md:block' : 'hidden'" />
                 </span>
 
                 est un bot Discord permettant de récupérer le menu de
@@ -44,7 +52,7 @@ const displayScreen2 = ref(false);
                     <img src="/projets/stephane/screen-1.png" alt="liste des établissements"
                         class="absolute left-full top-0 ml-3 border border-gray-500 z-10 bg-gray-900 transform -translate-y-1/4"
                         style="width: 300px; height: auto; min-width: 300px;"
-                        :class="displayScreen1 ? 'visible' : 'hidden'" />
+                        :class="displayScreen1 ? 'hidden md:block' : 'hidden'" />
                 </span>
 
                 pour avoir la liste des établissements disponibles et ensuite
@@ -57,7 +65,7 @@ const displayScreen2 = ref(false);
                     <img src="/projets/stephane/screen-2.png" alt="liste des établissements"
                         class="absolute top-full left-1/3 mt-1 border border-gray-500 z-10 bg-gray-900"
                         style="width: 300px; height: auto; min-width: 300px;"
-                        :class="displayScreen2 ? 'visible' : 'hidden'" />
+                        :class="displayScreen2 ? 'hidden md:block' : 'hidden'" />
                 </span>
 
                 pour obtenir le menu du jour. <br />

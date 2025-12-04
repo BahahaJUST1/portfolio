@@ -80,13 +80,13 @@ const prevProject = () => {
 };
 
 const openProjectModal = (component) => {
-    console.log("displaying ", component);
-
     currentProjectModal.value = component;
+    document.body.style.overflow = 'hidden';
 };
 
 const closeProjectModal = () => {
     currentProjectModal.value = null;
+    document.body.style.overflow = ''
 };
 
 const experiences = [
