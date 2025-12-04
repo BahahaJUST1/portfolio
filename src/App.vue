@@ -1,9 +1,14 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import Stephane from './realisations/Stephane.vue';
+import Agathe from './realisations/Agathe.vue';
+import Frigo from './realisations/Frigo.vue';
+import Portfolio from './realisations/Portfolio.vue';
 
 const scrollProgress = ref(0);
 const activeSection = ref('presentation');
 const currentProject = ref(0);
+const currentProjectModal = ref(null);
 
 const presentationRef = ref(null);
 const experiencesRef = ref(null);
@@ -35,6 +40,8 @@ const handleScroll = () => {
 
 const scrollToSection = (item) => {
 
+    currentProjectModal.value = null;
+
     if (item.id === 'presentation') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         return;
@@ -54,10 +61,10 @@ const openCV = () => {
 }
 
 const realisations = [
-    { name: 'Stéphane', image: '/stephane.png', imageClass: 'h-20 mb-5 m-auto mt-1' },
-    { name: 'Agathe In the Tripes', image: '/agathe.png', imageClass: 'h-16 mt-5 mb-4 m-auto' },
-    { name: 'Y\'a quoi dans le frigo ?', image: '/yaqdlf.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
-    { name: 'Portfolio', image: '/pp.jpg', imageClass: 'rounded-full h-[4.5rem] mt-3 mb-3 m-auto' },
+    { component: Stephane, name: 'Stéphane', image: 'projets/stephane/stephane.png', imageClass: 'h-20 mb-5 m-auto mt-1' },
+    { component: Agathe, name: 'Agathe In the Tripes', image: 'projets/agathe/agathe.png', imageClass: 'h-16 mt-5 mb-4 m-auto' },
+    { component: Frigo, name: 'Y\'a quoi dans le frigo ?', image: 'projets/frigo/frigo.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
+    { component: Portfolio, name: 'Portfolio', image: '/pp.jpg', imageClass: 'rounded-full h-[4.5rem] mt-3 mb-3 m-auto' },
 ];
 
 const nextProject = () => {
@@ -70,6 +77,16 @@ const prevProject = () => {
     if (currentProject.value > 0) {
         currentProject.value--;
     }
+};
+
+const openProjectModal = (component) => {
+    console.log("displaying ", component);
+
+    currentProjectModal.value = component;
+};
+
+const closeProjectModal = () => {
+    currentProjectModal.value = null;
 };
 
 const experiences = [
@@ -132,9 +149,9 @@ onUnmounted(() => {
                     </h2>
                     <p class="text-lg md:text-xl mb-12 text-gray-300 font-light">
                         Hey, bonjour ! <br />
-                        Je m'appelle Justin, j'ai 22ans et ceci est mon portfolio de développeur web fullstack. <br />
-                        Après avoir effectué mes 3ans de BUT informatique à l'IUT de Metz, j'ai décidé de me lancer dans
-                        le monde professionnel en tant que développeur web. <br />
+                        Je m'appelle Justin, j'ai 22 ans et ceci est mon portfolio de développeur web fullstack. <br />
+                        Après avoir effectué mes 3 ans de BUT informatique à l'IUT de Metz, j'ai décidé de me lancer
+                        dans le monde professionnel en tant que développeur web. <br />
                         <br />
                         Si vous pouvez lire ceci, c'est que je suis actuellement à la recherche d'une nouvelle
                         opportunité professionnelle sur les alentours de Strasbourg, n'hésitez pas à me contacter pour
@@ -192,8 +209,10 @@ onUnmounted(() => {
 
             <!-- ------------------- REALISATIONS -------------------  -->
             <article ref="realisationsRef"
-                class="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-900 via-gray-900 to-black text-white">
+                class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-900 via-gray-900 to-black text-white">
                 <div class="text-center px-6 max-w-6xl mx-auto">
+
+                    <component :is="currentProjectModal" @close="closeProjectModal" />
 
                     <h2 class="text-4xl md:text-6xl font-bold mb-8">
                         Réalisations
@@ -217,6 +236,7 @@ onUnmounted(() => {
                                 :style="{ '--slide-offset': `-${currentProject * (100 / 3 + 2)}%` }">
 
                                 <button v-for="(realisation, index) in realisations" :key="index"
+                                    @click="openProjectModal(realisation.component)"
                                     class="w-full md:w-[calc(33.333%-1rem)] md:flex-shrink-0 pt-4 border-2 border-white rounded-xl font-semibold md:hover:scale-105 transition-all">
                                     {{ realisation.name }}
                                     <img :src="realisation.image" :class="realisation.imageClass"
