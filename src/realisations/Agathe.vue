@@ -57,10 +57,10 @@ const hideCover = () => {
 
                     <br />
 
-                    Ce jeu vidéo met en scène une jeune fille qui, perdue par une nuit d'hiver,
-                    se réfugie dans ce qu'elle pense être une grotte mais qui s'avère être la gueule d'un gigantesque
+                    Ce jeu vidéo met en scène une jeune fille qui, perdue lors d'une nuit d'hiver,
+                    se réfugie dans ce qu'elle pense être une grotte, mais qui s'avère être la gueule d'un gigantesque
                     monstre. <br />
-                    Pour s'échaper, elle devra parcourir les entrailles de la bête en suivant son système digestif
+                    Pour s'échapper, elle devra parcourir les entrailles de la bête en suivant son système digestif
                     (bouche, œsophage, estomac, intestins et anus) formant ainsi les différents niveaux du jeu. <br />
 
                     <a href="https://youtu.be/ue_7ot0ACiU" target="_blank" class="see-more italic"> Le trailer du jeu
