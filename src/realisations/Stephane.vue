@@ -132,6 +132,11 @@ const hideScreen2 = () => {
                     dans le DOM et extraire les données nécessaires.
                 </p>
 
+                <p>
+                    <a href="https://github.com/BahahaJUST1/better-stephane" target="_blank" class="see-more italic">
+                        Lien du GitHub.</a>
+                </p>
+
             </div>
 
         </div>

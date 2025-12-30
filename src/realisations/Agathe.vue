@@ -74,6 +74,11 @@ const hideCover = () => {
                 <p>
                     Ce jeu a été développé en JavaScript avec le moteur de jeu Phaser.js. <br />
                 </p>
+
+                <p>
+                    <a href="https://github.com/RiY0M/Agathe-in-the-tripes" target="_blank" class="see-more italic">
+                        Lien du GitHub.</a>
+                </p>
             </div>
 
         </div>

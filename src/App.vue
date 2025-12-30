@@ -61,9 +61,9 @@ const openCV = () => {
 }
 
 const realisations = [
+    { component: Frigo, name: 'Y\'a quoi dans le frigo ?', image: 'projets/frigo/frigo.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
     { component: Stephane, name: 'Stéphane', image: 'projets/stephane/stephane.png', imageClass: 'h-20 mb-5 m-auto mt-1' },
     { component: Agathe, name: 'Agathe In the Tripes', image: 'projets/agathe/agathe.png', imageClass: 'h-16 mt-5 mb-4 m-auto' },
-    { component: Frigo, name: 'Y\'a quoi dans le frigo ?', image: 'projets/frigo/frigo.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
     { component: Portfolio, name: 'Portfolio', image: '/pp.jpg', imageClass: 'rounded-full h-[4.5rem] mt-3 mb-3 m-auto' },
 ];
 

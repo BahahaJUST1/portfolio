@@ -25,6 +25,11 @@ const close = () => emit('close');
                 <p>
                     Mon portfolio en ligne, développé en Vue.js 3 avec Tailwind et hébergé via Firebase Hosting.
                 </p>
+
+                <p>
+                    <a href="https://github.com/BahahaJUST1/portfolio" target="_blank" class="see-more italic">
+                        Lien du GitHub.</a>
+                </p>
             </div>
 
         </div>

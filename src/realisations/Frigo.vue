@@ -217,6 +217,11 @@ const hideShingling = () => {
                     uniquement en local pour les personnes connectées sur le réseau wifi de ma box internet. <br />
                 </p>
 
+                <p>
+                    <a href="https://github.com/BahahaJUST1/y-a-quoi-dans-le-frigo" target="_blank"
+                        class="see-more italic"> Lien du GitHub.</a>
+                </p>
+
             </div>
 
         </div>
