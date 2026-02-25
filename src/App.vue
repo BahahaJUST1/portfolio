@@ -5,6 +5,7 @@ import Agathe from './realisations/Agathe.vue';
 import Frigo from './realisations/Frigo.vue';
 import Portfolio from './realisations/Portfolio.vue';
 import SWU from './realisations/SWU.vue';
+import Edible from './realisations/Edible.vue';
 
 const scrollProgress = ref(0);
 const activeSection = ref('presentation');
@@ -62,6 +63,7 @@ const openCV = () => {
 }
 
 const realisations = [
+    { component: Edible, name: "Edible", image: 'projets/edible/roocky.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
     { component: Frigo, name: 'Y\'a quoi dans le frigo ?', image: 'projets/frigo/frigo.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
     { component: SWU, name: 'SWU BOS', image: 'projets/swu/swu-logo.png', imageClass: 'h-20 mb-3 mt-2 m-auto' },
     { component: Stephane, name: 'Stéphane', image: 'projets/stephane/stephane.png', imageClass: 'h-16 mb-5 m-auto mt-1' },
@@ -92,10 +94,11 @@ const closeProjectModal = () => {
 };
 
 const experiences = [
+    { title: 'Formation autodidacte', duration: 'Février 2026 - Aujourd\'hui', image: '/tt.png', description: "Formation en C#, ASP.NET et Angular à travers des projets personnels afin de gagner en compétences sur des technologies fortement présentes en Alsace.", delimiterClass: "md:h-8 md:top-20" },
     { title: 'Développeur web', company: 'OCI', city: 'Strasbourg', duration: 'Juillet 2025 - Octobre 2025', image: '/oci.png', description: "Développement de CRUD PHP Laravel, gestion de BDD avec Eloquent, anonymisations de données selon les normes RGPD en vigueur, mise en place d'un système de traduction automatique, développement et maintien de packages facilement réemployables, résolutions de tickets et réalisation d'une vitrine/bibliothèque de composants réutilisables", delimiterClass: "md:h-11 md:top-[94px]" },
     { title: 'Développeur logiciel backend', company: 'Owlie', city: 'Metz', duration: 'Septembre 2024 - Juillet 2025', image: '/owlie.jpg', description: "Développement de CRUD NestJS, mise en place d'API complexes, gestion de BDD avec migrations et ORM, synchronisations de données, maintenance d'un webshop connecté à un CRM, mise en place d'un système de facturation, automatisation via système de queues, conteneurisation et déploiement de projets, CI et pipelines, relations client", delimiterClass: "md:h-8 md:top-[93px]" },
     { title: 'Développeur logiciel fullstack (stage)', company: 'Owlie', city: 'Metz', duration: 'Février 2024 - Juin 2024', image: '/owlie.jpg', description: "Développement d'une application permettant de contextualiser les conversations de LLM tels que ChatGPT pour améliorer la qualité des réponses obtenues", delimiterClass: "md:h-4 md:top-20" },
-    { title: 'Développeur systèmes embarqués', company: 'Dronavia', city: 'Remiremont', duration: 'Avril 2023 - Juin 2023', image: '/dronavia.png', description: "Développement balise/sniffer wifi permettant de transmettre/récupérer les données de navigation d'un drone" },
+    { title: 'Développeur systèmes embarqués', company: 'Dronavia', city: 'Remiremont', duration: 'Avril 2023 - Juin 2023', image: '/dronavia.png', description: "Développement balise/sniffer wifi permettant de transmettre/récupérer les données de navigation d'un drone", delimiterClass: "md:h-0 md:top-0" },
 ];
 
 onMounted(() => {
@@ -171,7 +174,7 @@ onUnmounted(() => {
 
             <!-- ------------------- EXPERIENCES -------------------  -->
             <article ref="experiencesRef"
-                class="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-950 via-blue-900 to-purple-900 text-white">
+                class="pb-8 min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-950 via-blue-900 to-purple-900 text-white">
                 <div class="text-center px-6 max-w-4xl mx-auto">
 
                     <h2 class="text-4xl md:text-6xl font-bold mb-8 pt-12 md:pt-0">
@@ -211,7 +214,7 @@ onUnmounted(() => {
 
             <!-- ------------------- REALISATIONS -------------------  -->
             <article ref="realisationsRef"
-                class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-900 via-gray-900 to-black text-white">
+                class="py-8 relative min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-900 via-gray-900 to-black text-white">
                 <div class="text-center px-6 max-w-6xl mx-auto">
 
                     <component :is="currentProjectModal" @close="closeProjectModal" />
@@ -235,7 +238,7 @@ onUnmounted(() => {
                         <!-- Container du carousel -->
                         <div class="overflow-hidden py-2 px-3">
                             <div class="grid grid-cols-2 gap-4 md:flex md:gap-6 md:transition-transform md:duration-500 md:ease-in-out md:translate-x-[--slide-offset]"
-                                :style="{ '--slide-offset': `-${currentProject * (100 / 3 + 2)}%` }">
+                                :style="{ '--slide-offset': `-${currentProject * (100 / 3 + 1)}%` }">
 
                                 <button v-for="(realisation, index) in realisations" :key="index"
                                     @click="openProjectModal(realisation.component)"
